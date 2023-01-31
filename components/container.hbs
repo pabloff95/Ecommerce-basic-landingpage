@@ -1,0 +1,14 @@
+<main class="container mt-5">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <LinkTo @route="index">HOME</LinkTo>
+        </li>
+        <li class="breadcrumb-item">
+            <LinkTo @route="cart">CART</LinkTo>
+        </li>
+    </ol>
+    {{#if this.cart.itemList.length}}
+        <p class="justify-content-center card-count">Total: {{this.itemCount}}</p>
+    {{/if}}
+    {{yield}}
+</main>

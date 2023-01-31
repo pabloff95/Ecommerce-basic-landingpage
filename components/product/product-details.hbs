@@ -1,0 +1,33 @@
+
+    <div class="product-details">
+        <h2>{{@name}}</h2>
+        <div class="text-warning">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+        </div>
+        <section class={{unless @smallSize "h1" }}>
+            <del class="small text-black-50">{{currency @price.original sign="€"}}</del>
+            <i class="text-danger font-weight-bold">{{currency @price.current sign="€"}}</i>
+        </section>
+
+        {{#if @needColor}}
+            <div class="color-container">
+                <h4>Color:</h4>            
+                <div class="product-colors active-{{@color}}">            
+                    {{#each @colors as |colorInfo|}}
+                        <span class="product-color {{concat "color-" colorInfo.color}}"
+                        {{on "click" (fn @onChangeColor colorInfo.color)}}
+                        ></span>
+                    {{/each}}
+                </div>
+            </div>
+                <button class="btn btn-info" type="button" {{on "click" this.addToCart}}>
+                    <i class="fa fa-shopping-cart mr-1"></i>
+                    Add to cart
+                </button>
+        {{/if}}
+
+    </div>      

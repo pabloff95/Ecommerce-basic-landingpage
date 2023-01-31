@@ -1,0 +1,25 @@
+{{page-title "Item"}}
+    <h1 class="container mt-5">{{this.model.name}}</h1>
+    <Container>        
+        <section class="product {{if this.isZoomed "isZoomed"}}">
+            <Product::ProductImg  
+                @toggleZoom={{this.toggleZoom}}
+                @src={{this.productImage}} />
+            <Product::ProductDetails 
+                @smallSize={{true}}
+                @needColor={{true}}
+                @name={{this.model.name}}
+                @price={{this.model.price}}
+                @colors={{this.model.colors}}
+                @color={{this.color}} 
+                @onChangeColor={{this.onChangeColor}} />
+        </section>    
+        <h5 class="features">Features</h5>
+        <ul>
+        {{#each this.model.features as |feature|}}
+            <li>{{feature}}</li>
+        {{/each}}
+        </ul>
+    </Container>
+
+{{outlet}}

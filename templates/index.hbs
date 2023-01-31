@@ -1,0 +1,12 @@
+{{page-title "Ecommerce"}}
+
+    <h1 class="container mt-5">Welcome to my E-commerce</h1>
+    <Container>                
+        <section>
+            {{#each this.model as |product|}}
+                <Product @product={{product}} />
+            {{/each}}           
+        </section>
+    </Container>
+
+{{outlet}}
